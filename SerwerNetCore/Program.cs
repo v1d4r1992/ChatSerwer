@@ -16,17 +16,6 @@ namespace SerwerNetCore
 			Server server = new Server();
 
 			server.Start();
-
-			
-			
-			while (true)
-			{
-				foreach(Connection conn in server.SessionList)
-				{
-					conn.SendAsyncFunction(Encoding.ASCII.GetBytes("HelloWorld"));
-				}
-				Thread.Sleep(500);
-			}
         }
     }
 }
