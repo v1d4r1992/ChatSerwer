@@ -11,11 +11,9 @@ namespace SerwerNetCore
     {
 		private TcpListener listener;
 
-		public List<Connection> SessionList = new List<Connection>();
-
 		public Server()
 		{
-			listener = new TcpListener(8088);
+			listener = new TcpListener(System.Net.IPAddress.Any,8088);
 			listener.Start();
 		}
 
@@ -42,7 +40,7 @@ namespace SerwerNetCore
 			TcpListener listener = (TcpListener)ar.AsyncState;
 
 			Socket ConnectedSocket = listener.EndAcceptSocket(ar);
-			SessionList.Add(new Connection(ConnectedSocket));
+			UserList.SessionList.Add(new Connection(ConnectedSocket));
 		}
 	}
 }

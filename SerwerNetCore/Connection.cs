@@ -12,6 +12,8 @@ namespace SerwerNetCore
     {
 		private Socket socket;
 		private ManualResetEvent reciveDone = new ManualResetEvent(false);
+		private Player user;
+
 
 		public Connection(Socket socket)
 		{
@@ -47,7 +49,6 @@ namespace SerwerNetCore
 			Packet state = new Packet(socket);
 
 			socket.BeginSend(data,0, data.Length,0, new AsyncCallback(SendCallBack), state);
-
 		}
 
 
