@@ -8,23 +8,30 @@ namespace SerwerNetCore
     {
 		private readonly static UserList instance = new UserList();
 
-		private List<Connection> sessionList = new List<Connection>();
+		public List<PlayerSession> sessionList = new List<PlayerSession>();
 
 
-		public static List<Connection> SessionList
+		public static UserList Sessions
 		{
 			get
 			{
-				return instance.sessionList;
+				return instance;
 			}
 		}
 
 		public void SendPacketToAllUsers(byte[] data)
 		{
-			foreach(Connection user in SessionList)
+			foreach(PlayerSession user in sessionList)
 			{
-				user.SendAsyncFunction(data);
+				user.Connection.SendAsyncFunction(data);
 			}
-		} 
+		}
+
+
+        public void SendPacketToUser(string name, byte[] data)
+        {
+            Connection user = sessionList.Find(x => x.User.NickName == name).Connection;
+
+        }
 	}
 }

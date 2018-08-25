@@ -5,13 +5,15 @@ using System.Text;
 
 namespace SerwerNetCore
 {
-    class Packet
+    class PacketData
     {
 		public Socket workSocket = null;
 		public const int BUFFER_SIZE = 1024;
 		public byte[] buffer = new byte[BUFFER_SIZE];
+        public int PacketLength = 0;
 
-		public Packet(Socket socket)
+
+        public PacketData(Socket socket)
 		{
 			workSocket = socket;
 		}
