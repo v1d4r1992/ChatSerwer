@@ -9,3 +9,14 @@ C:\Users\Qzep\source\repos\SerwerNetCore\SerwerNetCore\obj\Debug\netcoreapp2.0\S
 C:\Users\Qzep\source\repos\SerwerNetCore\SerwerNetCore\obj\Debug\netcoreapp2.0\SerwerNetCore.AssemblyInfo.cs
 C:\Users\Qzep\source\repos\SerwerNetCore\SerwerNetCore\obj\Debug\netcoreapp2.0\SerwerNetCore.dll
 C:\Users\Qzep\source\repos\SerwerNetCore\SerwerNetCore\obj\Debug\netcoreapp2.0\SerwerNetCore.pdb
+C:\Users\Admin\Documents\Visual Studio 2017\Projekty\GameServerL\SerwerNetCore\obj\Debug\netcoreapp2.0\SerwerNetCore.csprojAssemblyReference.cache
+C:\Users\Admin\Documents\Visual Studio 2017\Projekty\GameServerL\SerwerNetCore\obj\Debug\netcoreapp2.0\SerwerNetCore.csproj.CoreCompileInputs.cache
+C:\Users\Admin\Documents\Visual Studio 2017\Projekty\GameServerL\SerwerNetCore\obj\Debug\netcoreapp2.0\SerwerNetCore.AssemblyInfoInputs.cache
+C:\Users\Admin\Documents\Visual Studio 2017\Projekty\GameServerL\SerwerNetCore\obj\Debug\netcoreapp2.0\SerwerNetCore.AssemblyInfo.cs
+C:\Users\Admin\Documents\Visual Studio 2017\Projekty\GameServerL\SerwerNetCore\obj\Debug\netcoreapp2.0\SerwerNetCore.dll
+C:\Users\Admin\Documents\Visual Studio 2017\Projekty\GameServerL\SerwerNetCore\obj\Debug\netcoreapp2.0\SerwerNetCore.pdb
+C:\Users\Admin\Documents\Visual Studio 2017\Projekty\GameServerL\SerwerNetCore\bin\Debug\netcoreapp2.0\SerwerNetCore.deps.json
+C:\Users\Admin\Documents\Visual Studio 2017\Projekty\GameServerL\SerwerNetCore\bin\Debug\netcoreapp2.0\SerwerNetCore.runtimeconfig.json
+C:\Users\Admin\Documents\Visual Studio 2017\Projekty\GameServerL\SerwerNetCore\bin\Debug\netcoreapp2.0\SerwerNetCore.runtimeconfig.dev.json
+C:\Users\Admin\Documents\Visual Studio 2017\Projekty\GameServerL\SerwerNetCore\bin\Debug\netcoreapp2.0\SerwerNetCore.dll
+C:\Users\Admin\Documents\Visual Studio 2017\Projekty\GameServerL\SerwerNetCore\bin\Debug\netcoreapp2.0\SerwerNetCore.pdb

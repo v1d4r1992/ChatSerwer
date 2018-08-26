@@ -7,7 +7,7 @@ namespace SerwerNetCore
 {
     class Player
     {
-		public string NickName { get; set; }
+        public string NickName { get; set; } = "Anonek";
 
 		public Vector2 Position { get; set; }
 

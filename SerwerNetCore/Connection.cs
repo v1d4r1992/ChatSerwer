@@ -11,11 +11,12 @@ namespace SerwerNetCore
     class Connection
     {
 		private Socket socket;
-		private ManualResetEvent reciveDone = new ManualResetEvent(false);
-		private Player user;
+		public static ManualResetEvent reciveDone = new ManualResetEvent(false);
+        public Queue<PacketData> packetQueue { get; private set; } = new Queue<PacketData>();
+        private Boolean readyToRecive = false;
 
 
-		public Connection(Socket socket)
+        public Connection(Socket socket)
 		{
 			this.socket = socket;
 		}
@@ -23,42 +24,55 @@ namespace SerwerNetCore
 
 		public void ReciveAsyncFunction()
 		{
-			Packet packet = new Packet(socket);
+            PacketData packet = new PacketData(socket);
+            //  Connection.reciveDone.Reset();
 
-			socket.BeginReceive(packet.buffer, 0, Packet.BUFFER_SIZE, 0,
-			new AsyncCallback(ReciveCallBack) ,packet);
-		}
+
+            if (readyToRecive == false)
+            {
+                readyToRecive = true;
+                socket.BeginReceive(packet.buffer, 0, PacketData.BUFFER_SIZE, 0,
+                new AsyncCallback(ReciveCallBack), packet);
+            }
+                // Connection.reciveDone.WaitOne();
+         }
 
 
 		public void ReciveCallBack(IAsyncResult ar)
 		{
-			Packet state = (Packet)ar.AsyncState;
+            readyToRecive = false;
+            //Connection.reciveDone.Set();
+            PacketData state = (PacketData)ar.AsyncState;
 
-			Socket handler = state.workSocket;
+            Socket handler = state.workSocket;
 			int bytesReadLength = handler.EndReceive(ar);
 
 			if(bytesReadLength>0)
 			{
-				Console.WriteLine(Encoding.ASCII.GetString(
-				state.buffer, 0, bytesReadLength));
-			}
+                state.PacketLength = bytesReadLength;
+                packetQueue.Enqueue(state);
+            }
 		}
 
 		public void SendAsyncFunction(byte[] data)
 		{
-			Packet state = new Packet(socket);
+            PacketData state = new PacketData(socket);
 
-			socket.BeginSend(data,0, data.Length,0, new AsyncCallback(SendCallBack), state);
-		}
-
-
+            socket.BeginSend(data,0, data.Length,0, new AsyncCallback(SendCallBack), state);
+        }
 
 		public void SendCallBack(IAsyncResult ar)
 		{
-			Packet state = (Packet)ar.AsyncState;
+            
+            PacketData state = (PacketData)ar.AsyncState;
 
 			Socket handler = state.workSocket;
 			int bytesReadLength = handler.EndSend(ar);
-		}
+        }
+
+
+        public void PacketParser(byte[] data)
+        {
+        }
 	}
 }

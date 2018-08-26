@@ -10,6 +10,7 @@ namespace SerwerNetCore
     class Server
     {
 		private TcpListener listener;
+        private ManualResetEvent _acceptConnectionEvent = new ManualResetEvent(false);
 
 		public Server()
 		{
@@ -23,24 +24,47 @@ namespace SerwerNetCore
 			Task t = Task.Run(() => {
 				while (true)
 				{
-					AcceptAsyncSockets();
-					Thread.Sleep(500);
+                   
+                    AcceptAsyncSockets();
+                  
 				}
 			});
 		}
 
+        public void Recive()
+        {
+            new Thread(new ThreadStart(delegate ()
+            {
+                while (true)
+                {
+                    lock (UserList.Sessions.sessionList)
+                    {
+                        foreach (PlayerSession users in UserList.Sessions.sessionList.ToArray())
+                        {
+                           users.Connection.ReciveAsyncFunction();
+                            users.ParsePackets();
+                          //  Thread.Sleep(60000);
+                        }
+                    }
+                
+                }
+            })).Start();
+        }
 
 		private void AcceptAsyncSockets()
 		{
-				listener.BeginAcceptSocket(new AsyncCallback(AcceptSocketCallback), listener);
-		}
+            _acceptConnectionEvent.Reset();
+                 listener.BeginAcceptSocket(new AsyncCallback(AcceptSocketCallback), listener);
+            _acceptConnectionEvent.WaitOne();
+        }
 
 		private void AcceptSocketCallback(IAsyncResult ar)
 		{
-			TcpListener listener = (TcpListener)ar.AsyncState;
+            _acceptConnectionEvent.Set();
+            TcpListener listener = (TcpListener)ar.AsyncState;
 
 			Socket ConnectedSocket = listener.EndAcceptSocket(ar);
-			UserList.SessionList.Add(new Connection(ConnectedSocket));
+            UserList.Sessions.sessionList.Add(new PlayerSession(new Connection(ConnectedSocket)));
 		}
 	}
 }
