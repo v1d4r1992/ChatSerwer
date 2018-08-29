@@ -6,7 +6,7 @@ namespace SerwerNetCore.Packet
 {
     interface IPacket
     {
-		byte[] Packet { get; set; }
+		PacketData Packet { get; set; }
 
 		void Execute(Player user);
     }

@@ -6,11 +6,11 @@ namespace SerwerNetCore.Packet
 {
 	class LoginPacket : IPacket
 	{
-		public byte[] Packet { get; set; }
+		public PacketData Packet { get; set; }
 
 		public void Execute(Player user)
 		{
-			string nick = ASCIIEncoding.ASCII.GetString(Packet, 1, Packet.Length - 1);
+			string nick = ASCIIEncoding.ASCII.GetString(Packet.buffer, 1, Packet.PacketLength - 1);
 			Console.Write($"User {user.NickName} zmienił nick na {nick} ");
 			user.NickName = nick;
 		}

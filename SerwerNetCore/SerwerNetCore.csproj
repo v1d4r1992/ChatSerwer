@@ -5,4 +5,8 @@
     <TargetFramework>netcoreapp2.0</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <None Remove="Packet\piwzv4cz.xws~" />
+  </ItemGroup>
+
 </Project>

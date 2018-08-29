@@ -14,14 +14,14 @@ namespace SerwerNetCore.Packet
 				case 0x71: //ustawianie nazwy użytkownika
 					{
 						LoginPacket packet = new LoginPacket();
-						packet.Packet = data.buffer;
+						packet.Packet = data;
 						return packet;
 					}
 
 				case 0x72: //wysyłanie wiadomości
 					{
 						ChatPacket packet = new ChatPacket();
-						packet.Packet = data.buffer;
+						packet.Packet = data;
 						return packet;
 					}
 			}
