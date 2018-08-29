@@ -15,7 +15,7 @@ namespace SerwerNetCore
 
 			server.Start();
 
-            server.Recive();
+
         }
     }
 }

@@ -21,32 +21,34 @@ namespace SerwerNetCore
 
 		public void Start()
 		{
+			AcceptConnectionService();
+			ReciveService();
+		}
+
+
+		public void AcceptConnectionService()
+		{
 			Task t = Task.Run(() => {
 				while (true)
 				{
-                   
-                    AcceptAsyncSockets();
-                  
+
+					AcceptAsyncSockets();
+
 				}
 			});
 		}
 
-        public void Recive()
+        public void ReciveService()
         {
             new Thread(new ThreadStart(delegate ()
             {
                 while (true)
                 {
-                    lock (UserList.Sessions.sessionList)
-                    {
                         foreach (PlayerSession users in UserList.Sessions.sessionList.ToArray())
                         {
                            users.Connection.ReciveAsyncFunction();
                             users.ParsePackets();
-                          //  Thread.Sleep(60000);
                         }
-                    }
-                
                 }
             })).Start();
         }

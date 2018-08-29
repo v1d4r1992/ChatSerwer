@@ -69,10 +69,5 @@ namespace SerwerNetCore
 			Socket handler = state.workSocket;
 			int bytesReadLength = handler.EndSend(ar);
         }
-
-
-        public void PacketParser(byte[] data)
-        {
-        }
 	}
 }
