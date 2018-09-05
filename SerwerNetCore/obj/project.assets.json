@@ -664,23 +664,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Qzep\\.nuget\\packages\\": {},
+    "C:\\Users\\user\\.nuget\\packages\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "F:\\GameServerL\\GameServerL\\SerwerNetCore\\SerwerNetCore.csproj",
+      "projectUniqueName": "C:\\Users\\user\\Documents\\GitHub\\GameServerL\\SerwerNetCore\\SerwerNetCore.csproj",
       "projectName": "SerwerNetCore",
-      "projectPath": "F:\\GameServerL\\GameServerL\\SerwerNetCore\\SerwerNetCore.csproj",
-      "packagesPath": "C:\\Users\\Qzep\\.nuget\\packages\\",
-      "outputPath": "F:\\GameServerL\\GameServerL\\SerwerNetCore\\obj\\",
+      "projectPath": "C:\\Users\\user\\Documents\\GitHub\\GameServerL\\SerwerNetCore\\SerwerNetCore.csproj",
+      "packagesPath": "C:\\Users\\user\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\user\\Documents\\GitHub\\GameServerL\\SerwerNetCore\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\Qzep\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\user\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
