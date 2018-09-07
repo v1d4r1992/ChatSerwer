@@ -5,15 +5,13 @@ using System.Text;
 
 namespace SerwerNetCore
 {
-    class Player
+    class User
     {
         public string NickName { get; set; } = "Anonek";
 
-		public Vector2 Position { get; set; }
 
-		public Player()
+		public User()
 		{
-			Position = new Vector2(0,0);
 		}
 	}
 }

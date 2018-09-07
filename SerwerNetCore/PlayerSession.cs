@@ -10,21 +10,21 @@ namespace SerwerNetCore
     class PlayerSession
     {
 		public Connection Connection { get; private set; }
-        public Player User { get; set; } = new Player();
+        public User User { get; set; } = new User();
 
 		public PlayerSession(Connection connection)
 		{
 			Connection = connection;
 		}
 
-        //stworzyc interfejs IPacket do przetwarzania pakietów i może zrobić te metode asynchroniczną
+ 
         public void PacketExecute()
         {
 			PacketParser parser = new PacketParser();
 
-			while (Connection.packetQueue.Count>0)
+			while (Connection.PacketQueue.Count>0)
             {
-				parser.ParsePacket(Connection.packetQueue.Dequeue()).Execute(User);
+				parser.ParsePacket(Connection.PacketQueue.Dequeue()).Execute(User);
 			}
         }
 	}

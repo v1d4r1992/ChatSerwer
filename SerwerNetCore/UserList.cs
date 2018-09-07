@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Linq;
 
 namespace SerwerNetCore
 {
@@ -19,6 +20,20 @@ namespace SerwerNetCore
 			}
 		}
 
+		public void TestSessionStatus()
+		{
+			List<PlayerSession> SessionsToKillCollection = new List<PlayerSession>();
+			foreach (PlayerSession user in sessionList)
+			{
+				if (!user.Connection.ConnectionIsAlive)
+				{
+					SessionsToKillCollection.Add(user);
+				}
+			}
+
+			sessionList.RemoveAll(x=> SessionsToKillCollection.Contains(x));
+		}
+
 		public void SendPacketToAllUsers(byte[] data)
 		{
 			foreach(PlayerSession user in sessionList)
@@ -30,8 +45,11 @@ namespace SerwerNetCore
 
         public void SendPacketToUser(string name, byte[] data)
         {
-			Connection user = sessionList.Find(x => x.User.NickName == name).Connection;
-			user.SendAsyncFunction(data);
+			if (sessionList.Exists(x => x.User.NickName == name))
+			{
+				Connection user = sessionList.Find(x => x.User.NickName == name).Connection;
+				user.SendAsyncFunction(data);
+			}
 		}
 	}
 }

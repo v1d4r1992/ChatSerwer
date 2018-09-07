@@ -8,7 +8,7 @@ namespace SerwerNetCore.Packet
 	{
 		public PacketData Packet { get; set; }
 
-		public void Execute(Player user)
+		public void Execute(User user)
 		{
 			string nick = ASCIIEncoding.ASCII.GetString(Packet.buffer, 1, Packet.PacketLength - 1);
 			Console.WriteLine($"User {user.NickName} zmienił nick na {nick} ");

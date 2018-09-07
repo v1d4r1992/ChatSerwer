@@ -6,17 +6,16 @@ using System.Threading;
 
 namespace SerwerNetCore
 {
-
-
     class Connection
     {
 		private Socket socket;
-		public static ManualResetEvent reciveDone = new ManualResetEvent(false);
-        public Queue<PacketData> packetQueue { get; private set; } = new Queue<PacketData>();
         private Boolean readyToRecive = false;
+		private SocketError ErrorCode;
 
+		public Queue<PacketData> PacketQueue { get; private set; } = new Queue<PacketData>();
+		
 
-        public Connection(Socket socket)
+		public Connection(Socket socket)
 		{
 			this.socket = socket;
 		}
@@ -25,33 +24,42 @@ namespace SerwerNetCore
 		public void ReciveAsyncFunction()
 		{
             PacketData packet = new PacketData(socket);
-            //  Connection.reciveDone.Reset();
 
 
             if (readyToRecive == false)
             {
                 readyToRecive = true;
-                socket.BeginReceive(packet.buffer, 0, PacketData.BUFFER_SIZE, 0,
-                new AsyncCallback(ReciveCallBack), packet);
+                socket.BeginReceive(packet.buffer, 0, PacketData.BUFFER_SIZE, 0,out ErrorCode,
+				new AsyncCallback(ReciveCallBack), packet);
             }
-                // Connection.reciveDone.WaitOne();
          }
+
+		public bool ConnectionIsAlive
+		{
+			get
+			{
+				return !(ErrorCode == System.Net.Sockets.SocketError.ConnectionReset);
+			}
+		}
 
 
 		public void ReciveCallBack(IAsyncResult ar)
 		{
             readyToRecive = false;
-            //Connection.reciveDone.Set();
             PacketData state = (PacketData)ar.AsyncState;
 
             Socket handler = state.workSocket;
-			int bytesReadLength = handler.EndReceive(ar);
+			
+			int bytesReadLength = handler.EndReceive(ar,out ErrorCode);
 
-			if(bytesReadLength>0)
+			if (ErrorCode == SocketError.Success)
 			{
-                state.PacketLength = bytesReadLength;
-                packetQueue.Enqueue(state);
-            }
+				if (bytesReadLength > 0)
+				{
+					state.PacketLength = bytesReadLength;
+					PacketQueue.Enqueue(state);
+				}
+			}
 		}
 
 		public void SendAsyncFunction(byte[] data)

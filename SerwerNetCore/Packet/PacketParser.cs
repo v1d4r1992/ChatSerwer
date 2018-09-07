@@ -19,7 +19,13 @@ namespace SerwerNetCore.Packet
 
 				case 0x72: //wysyłanie wiadomości
 					{
-						ChatPacket packet = new ChatPacket{ Packet = data };
+						GlobalChatPacket packet = new GlobalChatPacket { Packet = data };
+						return packet;
+					}
+
+				case 0x73:
+					{
+						PrivateMessage packet = new PrivateMessage { Packet = data };
 						return packet;
 					}
 			}

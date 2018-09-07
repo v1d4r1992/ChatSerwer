@@ -8,6 +8,6 @@ namespace SerwerNetCore.Packet
     {
 		PacketData Packet { get; set; }
 
-		void Execute(Player user);
+		void Execute(User user);
     }
 }
