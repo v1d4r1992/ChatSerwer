@@ -30,8 +30,8 @@ namespace SerwerNetCore
 
         public void SendPacketToUser(string name, byte[] data)
         {
-            Connection user = sessionList.Find(x => x.User.NickName == name).Connection;
-
-        }
+			Connection user = sessionList.Find(x => x.User.NickName == name).Connection;
+			user.SendAsyncFunction(data);
+		}
 	}
 }

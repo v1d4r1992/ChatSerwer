@@ -18,7 +18,7 @@ namespace SerwerNetCore
 		}
 
         //stworzyc interfejs IPacket do przetwarzania pakietów i może zrobić te metode asynchroniczną
-        public void ParsePackets()
+        public void PacketExecute()
         {
 			PacketParser parser = new PacketParser();
 

@@ -4,3 +4,15 @@ SerwerNetCore/obj/project\.assets\.json
 SerwerNetCore/obj/SerwerNetCore\.csproj\.nuget\.cache
 
 SerwerNetCore/obj/SerwerNetCore\.csproj\.nuget\.g\.props
+
+*.dll
+
+*.pdb
+
+SerwerNetCore/bin/Debug/netcoreapp2\.0/SerwerNetCore\.runtimeconfig\.dev\.json
+
+SerwerNetCore/obj/Debug/netcoreapp2\.0/SerwerNetCore\.csproj\.CoreCompileInputs\.cache
+
+SerwerNetCore/obj/Debug/netcoreapp2\.0/SerwerNetCore\.csproj\.FileListAbsolute\.txt
+
+SerwerNetCore/obj/Debug/netcoreapp2\.0/SerwerNetCore\.csprojAssemblyReference\.cache

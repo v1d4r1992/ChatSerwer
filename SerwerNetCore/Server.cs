@@ -47,7 +47,7 @@ namespace SerwerNetCore
                         foreach (PlayerSession users in UserList.Sessions.sessionList.ToArray())
                         {
                            users.Connection.ReciveAsyncFunction();
-                            users.ParsePackets();
+                           users.PacketExecute();
                         }
                 }
             })).Start();

@@ -11,7 +11,7 @@ namespace SerwerNetCore.Packet
 		public void Execute(Player user)
 		{
 			string nick = ASCIIEncoding.ASCII.GetString(Packet.buffer, 1, Packet.PacketLength - 1);
-			Console.Write($"User {user.NickName} zmienił nick na {nick} ");
+			Console.WriteLine($"User {user.NickName} zmienił nick na {nick} ");
 			user.NickName = nick;
 		}
 	}
