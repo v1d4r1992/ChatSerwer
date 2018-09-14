@@ -16,3 +16,7 @@ SerwerNetCore/obj/Debug/netcoreapp2\.0/SerwerNetCore\.csproj\.CoreCompileInputs\
 SerwerNetCore/obj/Debug/netcoreapp2\.0/SerwerNetCore\.csproj\.FileListAbsolute\.txt
 
 SerwerNetCore/obj/Debug/netcoreapp2\.0/SerwerNetCore\.csprojAssemblyReference\.cache
+
+\.vs/SerwerNetCore/v15/\.suo
+
+\.vs/SerwerNetCore/v15/Server/sqlite3/storage\.ide-shm

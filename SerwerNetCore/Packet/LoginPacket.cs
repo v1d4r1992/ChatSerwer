@@ -11,7 +11,7 @@ namespace SerwerNetCore.Packet
 
 		public void Execute(User user)
 		{
-			string nick = ASCIIEncoding.ASCII.GetString(Packet.buffer, 1, Packet.PacketLength - 1);
+			string nick = ASCIIEncoding.ASCII.GetString(Packet.buffer, 2, Packet.buffer[2]);
 
 			if (UserList.Sessions.sessionList.Exists(x => x.User.NickName == nick))
 			{
@@ -20,6 +20,7 @@ namespace SerwerNetCore.Packet
 			else
 			{
 				user.NickName = nick;
+				Console.WriteLine(user.NickName);
 			}
 		}
 	}
