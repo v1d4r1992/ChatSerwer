@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Linq;
 
 namespace SerwerNetCore.Packet
 {
@@ -11,8 +12,15 @@ namespace SerwerNetCore.Packet
 		public void Execute(User user)
 		{
 			string nick = ASCIIEncoding.ASCII.GetString(Packet.buffer, 1, Packet.PacketLength - 1);
-			Console.WriteLine($"User {user.NickName} zmienił nick na {nick} ");
-			user.NickName = nick;
+
+			if (UserList.Sessions.sessionList.Exists(x => x.User.NickName == nick))
+			{
+				UserList.Sessions.sessionList.Where(x => x.User == user).FirstOrDefault().Connection.SendAsyncFunction(new byte[] { 0x90, 0x01 });
+			}
+			else
+			{
+				user.NickName = nick;
+			}
 		}
 	}
 }

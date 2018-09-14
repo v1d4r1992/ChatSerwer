@@ -9,4 +9,8 @@
     <None Remove="Packet\piwzv4cz.xws~" />
   </ItemGroup>
 
+  <ItemGroup>
+    <PackageReference Include="EntityFramework" Version="6.2.0" />
+  </ItemGroup>
+
 </Project>
