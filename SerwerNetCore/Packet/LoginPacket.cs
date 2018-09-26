@@ -13,14 +13,13 @@ namespace SerwerNetCore.Packet
 		{
 			string nick = ASCIIEncoding.ASCII.GetString(Packet.buffer, 2, Packet.buffer[2]);
 
-			if (UserList.Sessions.sessionList.Exists(x => x.User.NickName == nick))
+			if (Sessions.SessionsInstance.sessionList.Exists(x => x.User.NickName == nick))
 			{
-				UserList.Sessions.sessionList.Where(x => x.User == user).FirstOrDefault().Connection.SendAsyncFunction(new byte[] { 0x90, 0x01 });
+				Sessions.SessionsInstance.sessionList.Where(x => x.User == user).FirstOrDefault().Connection.SendAsyncFunction(new byte[] { 0x90, 0x01 });
 			}
 			else
 			{
 				user.NickName = nick;
-				Console.WriteLine(user.NickName);
 			}
 		}
 	}

@@ -33,7 +33,6 @@ namespace SerwerNetCore
 				{
 
 					AcceptAsyncSockets();
-
 				}
 			});
 		}
@@ -44,7 +43,7 @@ namespace SerwerNetCore
             {
                 while (true)
                 {
-                        foreach (PlayerSession users in UserList.Sessions.sessionList.ToArray())
+                        foreach (PlayerSession users in Sessions.SessionsInstance.sessionList.ToArray())
                         {
                            users.Connection.ReciveAsyncFunction();
                            users.PacketExecute();
@@ -66,7 +65,7 @@ namespace SerwerNetCore
             TcpListener listener = (TcpListener)ar.AsyncState;
 
 			Socket ConnectedSocket = listener.EndAcceptSocket(ar);
-            UserList.Sessions.sessionList.Add(new PlayerSession(new Connection(ConnectedSocket)));
+            Sessions.SessionsInstance.sessionList.Add(new PlayerSession(new Connection(ConnectedSocket)));
 		}
 	}
 }

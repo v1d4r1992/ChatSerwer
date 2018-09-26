@@ -9,7 +9,6 @@ namespace SerwerNetCore
     {
         public string NickName { get; set; } = "Anonek";
 
-
 		public User()
 		{
 		}

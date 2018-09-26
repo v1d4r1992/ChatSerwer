@@ -5,14 +5,14 @@ using System.Linq;
 
 namespace SerwerNetCore
 {
-    class UserList
+    class Sessions
     {
-		private readonly static UserList instance = new UserList();
+		private readonly static Sessions instance = new Sessions();
 
 		public List<PlayerSession> sessionList = new List<PlayerSession>();
 
 
-		public static UserList Sessions
+		public static Sessions SessionsInstance
 		{
 			get
 			{

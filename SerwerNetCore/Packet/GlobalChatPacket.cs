@@ -15,7 +15,7 @@ namespace SerwerNetCore.Packet
 			byte[] outpacket = new byte[] { 0x32 };
 			outpacket = outpacket.Concat(Encoding.ASCII.GetBytes(message)).ToArray();
 
-			UserList.Sessions.SendPacketToAllUsers(outpacket);
+			Sessions.SessionsInstance.SendPacketToAllUsers(outpacket);
 		}
 	}
 }

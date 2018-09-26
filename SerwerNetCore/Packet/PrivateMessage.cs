@@ -19,7 +19,7 @@ namespace SerwerNetCore.Packet
 			outpacket = outpacket.Concat(Encoding.ASCII.GetBytes(user.NickName)).ToArray();
 			outpacket = outpacket.Concat(Encoding.ASCII.GetBytes(message)).ToArray();
 
-			UserList.Sessions.SendPacketToUser(senderName, outpacket);
+			Sessions.SessionsInstance.SendPacketToUser(senderName, outpacket);
 		}
 	}
 }

@@ -11,10 +11,12 @@ namespace SerwerNetCore
     {
 		public Connection Connection { get; private set; }
         public User User { get; set; } = new User();
+		public int ID { get; set; }
 
 		public PlayerSession(Connection connection)
 		{
 			Connection = connection;
+			ID = (int)(DateTime.Now.Ticks >> 10);
 		}
 
  
