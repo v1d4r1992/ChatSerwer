@@ -1,0 +1,11 @@
+C:\Users\Qzep\Documents\GameServerL\GameServerL\SerwerNetCore\bin\x64\Debug\netcoreapp2.0\SerwerNetCore.deps.json
+C:\Users\Qzep\Documents\GameServerL\GameServerL\SerwerNetCore\bin\x64\Debug\netcoreapp2.0\SerwerNetCore.runtimeconfig.json
+C:\Users\Qzep\Documents\GameServerL\GameServerL\SerwerNetCore\bin\x64\Debug\netcoreapp2.0\SerwerNetCore.runtimeconfig.dev.json
+C:\Users\Qzep\Documents\GameServerL\GameServerL\SerwerNetCore\bin\x64\Debug\netcoreapp2.0\SerwerNetCore.dll
+C:\Users\Qzep\Documents\GameServerL\GameServerL\SerwerNetCore\bin\x64\Debug\netcoreapp2.0\SerwerNetCore.pdb
+C:\Users\Qzep\Documents\GameServerL\GameServerL\SerwerNetCore\obj\x64\Debug\netcoreapp2.0\SerwerNetCore.csproj.CoreCompileInputs.cache
+C:\Users\Qzep\Documents\GameServerL\GameServerL\SerwerNetCore\obj\x64\Debug\netcoreapp2.0\SerwerNetCore.AssemblyInfoInputs.cache
+C:\Users\Qzep\Documents\GameServerL\GameServerL\SerwerNetCore\obj\x64\Debug\netcoreapp2.0\SerwerNetCore.AssemblyInfo.cs
+C:\Users\Qzep\Documents\GameServerL\GameServerL\SerwerNetCore\obj\x64\Debug\netcoreapp2.0\SerwerNetCore.dll
+C:\Users\Qzep\Documents\GameServerL\GameServerL\SerwerNetCore\obj\x64\Debug\netcoreapp2.0\SerwerNetCore.pdb
+C:\Users\Qzep\Documents\GameServerL\GameServerL\SerwerNetCore\obj\x64\Debug\netcoreapp2.0\SerwerNetCore.csprojAssemblyReference.cache
